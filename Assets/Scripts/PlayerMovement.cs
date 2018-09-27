@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour {
 
         rb.AddForce(movement * speed);
 
-        if (Input.GetButtonDown("Fire1"))
+        /*if (Input.GetButtonDown("Fire1"))
         {
             rotate = 20;
 
         }
 
-        Debug.Log("ö" + rb.velocity.magnitude);
+        Debug.Log("ö" + rb.velocity.magnitude);*/
 
         rb.AddTorque(new Vector3(0, rb.velocity.magnitude * rotate, 0));
         //rb.AddTorque(new Vector3(0, rotateVertical, 0));
