@@ -9,33 +9,38 @@ public class Bullet : MonoBehaviour {
     public float FireRate = 0.5f;
     private Vector3 bulletMovement;
     private Vector3 bulletRotation;
-    private int direction = 1;
     public Transform target;
+    Vector3 _direction;
+    public Transform _startPosition;
     Vector3 playerOldPosition;
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
         if(target != null)
         {
-
-            transform.position += transform.forward * speed * Time.deltaTime;
-
+            //transform.position += transform.forward * speed * Time.deltaTime;
+            transform.position += _direction * (speed * Time.deltaTime);
+            //transform.position += Vector3.forward * speed * Time.deltaTime;
             //transform.position = Vector3.MoveTowards(transform.position, playerOldPosition, speed);
             //transform.position += direction * bulletMovement;
             //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
 
-            transform.localRotation *= Quaternion.Euler(bulletRotation);
+            //transform.localRotation *= Quaternion.Euler(bulletRotation);
+        
         }
         
 	}
     private void OnEnable()
     {
+       
         Invoke("Disable", destroyTimer);
     }
 
     void Disable()
     {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         gameObject.SetActive(false);
     }
 
@@ -44,13 +49,25 @@ public class Bullet : MonoBehaviour {
         CancelInvoke();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             Disable();
+
         }
+
+        /*if (other.gameObject != this)
+        {
+            Disable();
+        }*/
     }
+
+    public void UpdateDirection()
+    {
+        _direction = (target.transform.position - _startPosition.position).normalized;
+    }
+ 
     /*public  Transform GetPlayerLocation(Transform transform)
     {
         //playerOldPosition = new Vector3(transform.transform.position.x, transform.transform.position.y, transform.transform.position.z);

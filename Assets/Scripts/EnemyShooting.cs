@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour {
     public float coolDown = 3;
     public float firerate = 0.07f;
     public float nextfire = 0.0f;
-    private const int _spawnBulletDistance= 5;
+    private const float _spawnBulletDistance= 2.5f;
     public static EnemyShooting current;
     
     // Use this for initialization
@@ -35,10 +35,8 @@ public class EnemyShooting : MonoBehaviour {
                 nextfire = Time.time + firerate;
                 Fire();
                 //StartCoroutine(Attack());
-            }
-            
+            }      
         }
-        
 	}
 
     private void OnTriggerStay(Collider other)
@@ -46,8 +44,7 @@ public class EnemyShooting : MonoBehaviour {
         if(other.gameObject.tag == "Player")
         {
             playerIsOnArea = true;
-            player = other.transform;
-            Debug.Log("Pelaaja on alueella");
+            player = other.transform;           
         }
     }
 
@@ -56,19 +53,21 @@ public class EnemyShooting : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerIsOnArea = false;
-            player = null;
-            Debug.Log("Pelaaja lähti alueelta");
+            player = null;          
         }
     }
 
     public void Fire()
     {
         GameObject bullet = PoolManager.current.GetBullet();
+
         if (bullet == null) return;
 
-        bullet.transform.position = transform.position; //+ Vector3.forward + new Vector3(0,0,_spawnBulletDistance);
+        bullet.transform.position = transform.position; //+ Vector3.forward + new Vector3(transform.position.x, transform.position.y ,transform.position.z);
         bullet.transform.rotation = transform.rotation;
         bullet.gameObject.GetComponent<Bullet>().target = player.transform;
+        bullet.gameObject.GetComponent<Bullet>()._startPosition = this.transform;
+        bullet.gameObject.GetComponent<Bullet>().UpdateDirection();
         //bullet.gameObject.GetComponent<Bullet>().GetPlayerLocation(player.transform);
         bullet.SetActive(true);
         
@@ -80,8 +79,6 @@ public class EnemyShooting : MonoBehaviour {
         //Instantiate(bullet, transform.position + _spawnBulletDistance * transform.forward, transform.rotation);
         GameObject bullet = PoolManager.current.GetBullet();
         if (bullet == null) yield return new WaitForSeconds(coolDown);
-
-
     }*/
 
 }
