@@ -27,11 +27,14 @@ public class PlayerMovement : MonoBehaviour {
         //float rotateHorizontal = Input.GetAxis("Horizontal") * rotate * Time.deltaTime;
         //float rotateVertical = Input.GetAxis("Vertical") * rotate * Time.deltaTime;
 
-        
-
         Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
 
         rb.AddForce(movement * speed);
+
+        if (rb.velocity.magnitude > speed)
+        {
+            rb.velocity = rb.velocity.normalized * speed;
+        }
 
         /*if (Input.GetButtonDown("Fire1"))
         {
