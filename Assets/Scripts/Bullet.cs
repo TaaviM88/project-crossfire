@@ -54,7 +54,6 @@ public class Bullet : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             Disable();
-
         }
 
         /*if (other.gameObject != this)
@@ -65,7 +64,12 @@ public class Bullet : MonoBehaviour {
 
     public void UpdateDirection()
     {
+        /*Vector3 targetLift = new Vector3(0, 0, 0);
+        targetLift.x = target.transform.position.x;
+        targetLift.y = target.transform.position.y;
+        targetLift.y = target.transform.position.z;*/   
         _direction = (target.transform.position - _startPosition.position).normalized;
+       // _direction = (targetLift - _startPosition.position).normalized;
     }
  
     /*public  Transform GetPlayerLocation(Transform transform)
