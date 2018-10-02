@@ -12,7 +12,8 @@ public class Bullet : MonoBehaviour {
     public Transform target;
     Vector3 _direction;
     public Transform _startPosition;
-    Vector3 playerOldPosition;
+
+    //Vector3 playerOldPosition;
 
     // Update is called once per frame
     void Update ()
@@ -26,14 +27,13 @@ public class Bullet : MonoBehaviour {
             //transform.position += direction * bulletMovement;
             //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
 
-            //transform.localRotation *= Quaternion.Euler(bulletRotation);
+            transform.localRotation *= Quaternion.Euler(bulletRotation);
         
         }
         
 	}
     private void OnEnable()
     {
-       
         Invoke("Disable", destroyTimer);
     }
 
@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour {
     {
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(0, 0, 0);
+       
         gameObject.SetActive(false);
     }
 
@@ -64,12 +65,10 @@ public class Bullet : MonoBehaviour {
 
     public void UpdateDirection()
     {
-        /*Vector3 targetLift = new Vector3(0, 0, 0);
-        targetLift.x = target.transform.position.x;
-        targetLift.y = target.transform.position.y;
-        targetLift.y = target.transform.position.z;*/   
+
         _direction = (target.transform.position - _startPosition.position).normalized;
-       // _direction = (targetLift - _startPosition.position).normalized;
+        _direction.y = 0;
+
     }
  
     /*public  Transform GetPlayerLocation(Transform transform)
