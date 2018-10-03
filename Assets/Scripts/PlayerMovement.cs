@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (rb.velocity.magnitude > speed)
         {
-            rb.velocity = rb.velocity.normalized * speed;
+            rb.velocity = rb.velocity.normalized * speed    ;
         }
 
         /*if (Input.GetButtonDown("Fire1"))
