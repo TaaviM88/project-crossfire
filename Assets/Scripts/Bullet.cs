@@ -54,6 +54,12 @@ public class Bullet : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            //Disable();
+            return;
+        }
+
+        if(other.gameObject.tag == "Enemy")
+        {
             Disable();
         }
 
