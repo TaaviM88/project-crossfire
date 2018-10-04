@@ -211,4 +211,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  dash: 10
   rotate: 200
