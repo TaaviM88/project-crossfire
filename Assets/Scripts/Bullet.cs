@@ -12,26 +12,33 @@ public class Bullet : MonoBehaviour {
     public Transform target;
     Vector3 _direction;
     public Transform _startPosition;
-
+    Rigidbody _rb;
+    bool bulletHitWall = false;
     //Vector3 playerOldPosition;
-
-    // Update is called once per frame
-    void Update ()
+    private void Awake()
     {
-        if(target != null)
+        _rb = GetComponent<Rigidbody>();
+    }
+    // Update is called once per frame
+    void FixedUpdate ()
+    {
+        if (bulletHitWall == false)
         {
-            //transform.position += transform.forward * speed * Time.deltaTime;
-            transform.position += _direction * (speed * Time.deltaTime);
-            //transform.position += Vector3.forward * speed * Time.deltaTime;
-            //transform.position = Vector3.MoveTowards(transform.position, playerOldPosition, speed);
-            //transform.position += direction * bulletMovement;
-            //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+            if (target != null)
+            {
+                //transform.position += _direction * (speed * Time.deltaTime);
+                //rigidbody.AddForce(_direction * speed, ForceMode.Impulse);
+                _rb.AddForce(_direction * (speed * Time.deltaTime), ForceMode.Impulse);
+                //transform.localRotation *= Quaternion.Euler(bulletRotation);
 
-            transform.localRotation *= Quaternion.Euler(bulletRotation);
-        
+            }
         }
+        else
+            _rb.AddForce(Vector3.forward * (speed * Time.deltaTime), ForceMode.Impulse);
+         
         
-	}
+
+    }
     private void OnEnable()
     {
         Invoke("Disable", destroyTimer);
@@ -41,7 +48,8 @@ public class Bullet : MonoBehaviour {
     {
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(0, 0, 0);
-       
+        _rb.velocity = Vector3.zero;
+        bulletHitWall = false;
         gameObject.SetActive(false);
     }
 
@@ -54,7 +62,7 @@ public class Bullet : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            //Disable();
+            Disable();
             return;
         }
 
@@ -69,12 +77,18 @@ public class Bullet : MonoBehaviour {
         }*/
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 9)
+        {
+            bulletHitWall = true;
+            Debug.Log("Osuin seinään");
+        }
+    }
     public void UpdateDirection()
     {
-
         _direction = (target.transform.position - _startPosition.position).normalized;
         _direction.y = 0;
-
     }
  
     /*public  Transform GetPlayerLocation(Transform transform)

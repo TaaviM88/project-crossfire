@@ -98,7 +98,6 @@ public class EnemyShooting : MonoBehaviour {
         {
             if (other.gameObject.tag == "Player")
             {
-
                 playerIsOnArea = false;
                 _animerator.SetBool("PlayerIsOnAreaAnimator", false);
                 //player = null;

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114908566886297884}
   - component: {fileID: 135197987575659378}
   - component: {fileID: 54248733716919128}
+  - component: {fileID: 135161483603524522}
   m_Layer: 0
   m_Name: tmp_bullet
   m_TagString: Bullet
@@ -190,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008231568714998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.48459, y: 10.13, z: 26.62513}
+  m_LocalPosition: {x: 27.365837, y: 15.08, z: -17.94262}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4265207516964722}
@@ -223,12 +224,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780fc12715e95984b8ba92d96d9f2be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 80
   damage: 0
   destroyTimer: 4
   FireRate: 0
   target: {fileID: 0}
   _startPosition: {fileID: 0}
+--- !u!135 &135161483603524522
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008231568714998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135197987575659378
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4789,7 +4802,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 0
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
