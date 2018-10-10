@@ -33,9 +33,6 @@ public class Bullet : MonoBehaviour {
 
             }
         }
-        else
-            _rb.AddForce(Vector3.forward * (speed * Time.deltaTime), ForceMode.Impulse);
-         
         
 
     }
