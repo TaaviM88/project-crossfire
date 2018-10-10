@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33144433352559756}
   - component: {fileID: 23082517112122820}
   - component: {fileID: 65650169488692468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tea_set
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453078650853284}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 81f97d54c7ceaea4a938e8719979c7d5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
