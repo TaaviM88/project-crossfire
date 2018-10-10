@@ -223,6 +223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5048fc4a4283fa94187735fa43d7875d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpeed: 30
   speed: 30
-  dash: 10
+  dash: 400
   rotate: 200
+  dashTime: 0.15
+  dashDelay: 3
+  currentDashDelayTime: 0
+  time: 0
+  hasDashed: 0
