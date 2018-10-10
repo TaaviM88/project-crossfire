@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour {
     {
         if(other.gameObject.tag == "Bullet")
         {
-            playerIsAlive = false;
+            playerIsAlive = false;      
             PlayerDie(); 
         }
     }

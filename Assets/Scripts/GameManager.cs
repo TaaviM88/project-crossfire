@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager gameManager;
-    List<PlayerManager> listPlayers;
+    List<PlayerManager> listPlayers;    
     public GameTypes.PlayerType player;
-    bool timeGoingDown = false, playerIsAlive = true;
+    bool timerOn = false, playerIsAlive = true;
     public bool timeScale = true;
 
 	// Use this for initialization

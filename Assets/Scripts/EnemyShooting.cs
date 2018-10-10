@@ -68,14 +68,11 @@ public class EnemyShooting : MonoBehaviour {
                 //rend.material.SetColor("_Color", originalColor);
             }
 
-
             if (_colorChangeTime < 1)
             {
                 _colorChangeTime += Time.deltaTime / colorChangeDuration;
             }
-
         }
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -89,7 +86,6 @@ public class EnemyShooting : MonoBehaviour {
                 _player = other.transform;
             }
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
@@ -103,7 +99,6 @@ public class EnemyShooting : MonoBehaviour {
                 //player = null;
             }
         }
-            
     }
 
     public void Fire()
@@ -126,7 +121,6 @@ public class EnemyShooting : MonoBehaviour {
                 //StartCoroutine(Attack());
             }
         }
-        
     }
 
     public void EnemyHit()
