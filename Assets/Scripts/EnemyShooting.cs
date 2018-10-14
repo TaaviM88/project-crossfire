@@ -26,10 +26,11 @@ public class EnemyShooting : MonoBehaviour {
 
     bool _isEnemyAlive = true;
     // Use this for initialization
-    void Awake ()
+    void Start ()
     {
         current = this;
         _isEnemyAlive = true;
+        GameManager.gameManager.AddEnemy(this);
         rend = GetComponentInChildren<Renderer>();
         originalColor = rend.material.GetColor("_Color");
 
@@ -134,7 +135,8 @@ public class EnemyShooting : MonoBehaviour {
 
     public void DestroyEnemy()
     {
-        Debug.Log("Enemy destroyed " + gameObject.name);
+        //Debug.Log("Enemy destroyed " + gameObject.name);
+        GameManager.gameManager.RemoveEnemy(this);
         Destroy(gameObject);
         //gameObject.SetActive(false);
     }

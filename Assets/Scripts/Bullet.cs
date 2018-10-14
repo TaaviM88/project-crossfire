@@ -30,7 +30,6 @@ public class Bullet : MonoBehaviour {
                 //rigidbody.AddForce(_direction * speed, ForceMode.Impulse);
                 _rb.AddForce(_direction * (speed * Time.deltaTime), ForceMode.Impulse);
                 //transform.localRotation *= Quaternion.Euler(bulletRotation);
-
             }
         }
         
@@ -76,10 +75,10 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == 9)
+        if(collision.gameObject.layer == 9 || collision.gameObject.layer == 11)
         {
             bulletHitWall = true;
-            Debug.Log("Osuin seinään");
+            Debug.Log("Osuin " + collision.gameObject.name);
         }
     }
     public void UpdateDirection()

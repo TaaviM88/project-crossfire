@@ -18,9 +18,9 @@ TagManager:
   - PostProcessing
   - Wall
   - Enemy_highlights
-  - 
-  - 
-  - 
+  - Barrier
+  - Bullet
+  - Floor
   - 
   - 
   - 

@@ -10,6 +10,6 @@ public class SceneLoader : MonoBehaviour {
     {
         //ladataan kenttä jonka index on build setting numerossa 1; Tässä tapauksessa Level1.
         Debug.Log("Ladataan Scene");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(LevelIndex);
     }
 }
