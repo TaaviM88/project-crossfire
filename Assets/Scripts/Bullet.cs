@@ -78,7 +78,6 @@ public class Bullet : MonoBehaviour {
         if(collision.gameObject.layer == 9 || collision.gameObject.layer == 11)
         {
             bulletHitWall = true;
-            Debug.Log("Osuin " + collision.gameObject.name);
         }
     }
     public void UpdateDirection()

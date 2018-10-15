@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   k_AssetVersion: 3
   m_MaxPixelLights: 4
-  m_SupportsVertexLight: 0
+  m_SupportsVertexLight: 1
   m_RequireDepthTexture: 0
   m_RequireSoftParticles: 0
   m_RequireOpaqueTexture: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   m_SupportsHDR: 0
   m_MSAA: 4
   m_RenderScale: 1
-  m_SupportsDynamicBatching: 1
+  m_SupportsDynamicBatching: 0
   m_DirectionalShadowsSupported: 1
   m_ShadowAtlasResolution: 2048
   m_ShadowDistance: 50

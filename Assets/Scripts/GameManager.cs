@@ -42,13 +42,18 @@ public class GameManager : MonoBehaviour {
     }
     public void RemoveEnemy(EnemyShooting _enemy)
     {
-        if (listEnemy.Count != 0)
+        if(listEnemy.Count != 0)
         {
             listEnemy.Remove(_enemy);
         }
-        else
+        
+
+        if (listEnemy.Count == 0)
+        {
             PlayerWins();
+        }
     }
+
     public void CanvasEnable()
     {
         canvas.SetActive(true);
